@@ -1,0 +1,14 @@
+.DS_Store
+*.swp
+*.swo
+
+#node / python
+node_modules/
+_pycache_/
+
+#images / cache
+
+doc/img/*.tmp
+minikube-linux-amd64
+*.deb
+*.tar.gz

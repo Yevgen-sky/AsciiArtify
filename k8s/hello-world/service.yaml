@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hello-world-svc
-  namespace: asciiairtify-hello
+  namespace: asciiartify-hello
 spec:
   type: NodePort
   selector:

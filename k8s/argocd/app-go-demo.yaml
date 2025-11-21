@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/den-vasyliev/go-demo-app
     targetRevision: HEAD
-    path: k8s             # если в репо другой путь — поменяешь тут
+    path: k8s             
   destination:
     server: https://kubernetes.default.svc
     namespace: go-demo

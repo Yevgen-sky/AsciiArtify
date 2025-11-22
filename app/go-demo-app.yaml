@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/den-vasyliev/go-demo-app
+    repoURL: https://github.com/Yevgen-sky/AsciiArtify/app
     targetRevision: HEAD
     path: yaml
   destination:

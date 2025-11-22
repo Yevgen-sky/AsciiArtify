@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Yevgen-sky/AsciiArtify/app
+    repoURL: https://github.com/Yevgen-sky/AsciiArtify
     targetRevision: HEAD
-    path: yaml
+    path: app/go-demo-app
   destination:
     server: https://kubernetes.default.svc
     namespace: go-demo

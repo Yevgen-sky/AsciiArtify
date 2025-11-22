@@ -5,17 +5,19 @@ metadata:
   namespace: argocd
 spec:
   project: default
+
   source:
     repoURL: https://github.com/Yevgen-sky/AsciiArtify
     targetRevision: HEAD
-    path: app/go-demo-app
+    path: k8s/hello-world
+
   destination:
     server: https://kubernetes.default.svc
     namespace: go-demo
+
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-

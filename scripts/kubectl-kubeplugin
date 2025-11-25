@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# kubectl plugin: kubeplugin
+
+# Usage: kubectl kubeplugin pods -n kube-system
+
+show_help() {
+  echo "Usage: kubectl kubeplugin <resource> -n <namespace>"
+  echo "Example: kubectl kubeplugin pods -n kube-system"
+}
+
+# No args - show help
+
+if [[ $# -lt 3 ]]; then
+  show_help
+  exit 1
+fi
+
+# Parse args
+RESOURCE=""
+NAMESPACE=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -n|--namespace)
+      NAMESPACE="$2"
+      shift 2
+      ;;
+    *)
+      RESOURCE="$1"
+      shift 1
+      ;;
+  esac
+done
+
+if [[ -z "$RESOURCE" || -z "$NAMESPACE" ]]; then
+  show_help
+  exit 1
+fi
+
+# Print header
+echo "Resource,Namespace,Name,CPU,Memory"
+
+# Call Kubernetes API
+kubectl top "$RESOURCE" -n "$NAMESPACE" \
+  | tail -n +2 \
+  | while read -r NAME CPU MEMORY _; do
+      echo "$RESOURCE,$NAMESPACE,$NAME,$CPU,$MEMORY"
+    done
+
+
